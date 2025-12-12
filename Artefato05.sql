@@ -44,10 +44,10 @@ select * from Disciplina;
 
 -- inserir dados em Horario
 insert into Horario (id_horario, hora_inicio, hora_fim, dia_semana) 
-values (110, "", "Pedagoga");
-insert into Professor (prof_matricula, nome, formacao)  
-values (111, "Danisio", "Matemática");
-insert into Professor (prof_matricula, nome, formacao)  
-values (112, "Lara", "Letras");
+values (110, "09:40", "11:40", "segunda");
+insert into Horario (id_horario, hora_inicio, hora_fim, dia_semana) 
+values (120, "07:20", "09:20", "quarta");
+insert into Horario (id_horario, hora_inicio, hora_fim, dia_semana) 
+values (130, "13:00", "15:00", "quinta");
 
-select * from Professor;
+select * from Horario;
