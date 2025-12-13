@@ -1,6 +1,6 @@
 use FrequenciaProfessor;
 
--- inserir dados nas turmas
+-- inserir dados na tabela turma
 insert into Turma (id_turma, nome_turma) 
 values (1, "Informática");
 insert into Turma (id_turma, nome_turma) 
@@ -16,7 +16,7 @@ where id_turma = 2;
 
 select * from Turma;
 
--- inserir dados em professor
+-- inserir dados na tabela professor
 insert into Professor (prof_matricula, nome, formacao) 
 values (100, "Alaene", "Pedagoga");
 insert into Professor (prof_matricula, nome, formacao)  
@@ -31,18 +31,18 @@ where prof_matricula = 101;
 
 select * from Professor;
 
--- inserir dados em Disciplina
+-- inserir dados na tabela Disciplina
 insert into Disciplina (id_disc, nome_disc, carga_horaria) 
-values (30, "Química", 40);
+values (30, "Química", "40.00");
 insert into Disciplina (id_disc, nome_disc, carga_horaria) 
-values (31, "Português", "60");
+values (45, "Português", "60.00");
 insert into Disciplina (id_disc, nome_disc, carga_horaria) 
-values (32, "Inglês", "40");
+values (52, "Inglês", "40.00");
 
 select * from Disciplina;
 
 
--- inserir dados em Horario
+-- inserir dados na tabela Horario
 insert into Horario (id_horario, hora_inicio, hora_fim, dia_semana) 
 values (110, "09:40", "11:40", "segunda");
 insert into Horario (id_horario, hora_inicio, hora_fim, dia_semana) 
@@ -51,3 +51,33 @@ insert into Horario (id_horario, hora_inicio, hora_fim, dia_semana)
 values (130, "13:00", "15:00", "quinta");
 
 select * from Horario;
+
+-- inserir dados na tabela Frequencia
+insert into Frequencia (id_freq, quant_falta, quant_presenca) 
+values (75, 4, 36);
+insert into Frequencia (id_freq, quant_falta, quant_presenca) 
+values (74, 10, 30);
+insert into Frequencia (id_freq, quant_falta, quant_presenca) 
+values (73, 2, 58);
+
+select * from Frequencia;
+
+-- inserir dados na tabela Aula
+insert into Aula (id_aula, id_disc, id_turma, prof_matricula) 
+values (400, 30, 2, 101);
+insert into Aula (id_aula, id_disc, id_turma, prof_matricula) 
+values (401, 45, 3, 102);
+insert into Aula (id_aula, id_disc, id_turma, prof_matricula) 
+values (402, 52, 1, 100);
+
+select * from Aula;
+
+-- inserir dados na tabela HorarioAula
+insert into HorarioAula (id_HorarioAula, id_freq, id_horario, id_aula) 
+values (220, 74, 120, 401);
+insert into HorarioAula (id_HorarioAula, id_freq, id_horario, id_aula) 
+values (230, 73, 130, 402);
+insert into HorarioAula (id_HorarioAula, id_freq, id_horario, id_aula) 
+values (240, 75, 110, 400);
+
+select * from HorarioAula;
