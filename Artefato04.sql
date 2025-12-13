@@ -9,7 +9,7 @@ create table Turma (
 
 create table Disciplina (
 	id_disc int primary key auto_increment,
-    carga_horaria decimal,
+    carga_horaria decimal(10, 2),
     nome_disc varchar(45) not null
 );
 
@@ -23,8 +23,7 @@ create table Aula (
 	id_aula int primary key auto_increment,
 	id_turma int not null references Turma(id_turma),
     id_disc int not null references Disciplina(id_disc),
-    prof_matricula int not null references Professor(prof_matricula),
-    id_HorarioAula int not null references HorarioAula(id_HorarioAula)
+    prof_matricula int not null references Professor(prof_matricula)
 );
 
 create table Horario (
@@ -43,5 +42,6 @@ create table Frequencia (
 create table HorarioAula (
 	id_HorarioAula int primary key auto_increment,
     id_horario int not null references Horario(id_horario),
-    id_freq int not null references Frequencia(id_freq)
+    id_freq int not null references Frequencia(id_freq),
+    id_aula int not null references Aula(id_aula)
 );
