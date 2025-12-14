@@ -81,3 +81,40 @@ insert into HorarioAula (id_HorarioAula, id_freq, id_horario, id_aula)
 values (240, 75, 110, 400);
 
 select * from HorarioAula;
+
+
+-- Teste de consultas no Banco de Dados
+
+-- listar todas as turmas
+select * from turma;
+
+-- listar os professores cuja formação é 'Letras'
+select * from Professor
+where formacao = 'Letras';
+
+-- atualizar a carga horária da disciplina de inglês
+update Disciplina 
+set carga_horaria = '50.00'
+where nome_disc = 'Inglês';
+
+-- listar o nome do professor e o id da aula que ele ministra
+select Professor.nome, Aula.id_aula
+from Aula
+join Professor
+on Aula.prof_matricula = Professor.prof_matricula;
+
+-- listar o nome das disciplinas e turmas
+select Disciplina.nome_disc, Turma.nome_turma
+from Aula
+join Disciplina
+on Aula.id_disc = Disciplina.id_disc
+join Turma
+on Aula.id_turma = Turma.id_turma;
+
+-- listar a quantidade de presenças e faltas em cada aula
+select Aula.id_aula, Frequencia.quant_presenca, Frequencia.quant_falta
+from HorarioAula
+join Frequencia
+on HorarioAula.id_freq = Frequencia.id_freq
+join Aula
+on HorarioAula.id_aula = Aula.id_aula;
